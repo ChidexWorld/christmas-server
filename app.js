@@ -9,7 +9,12 @@ const cors = require("cors");
 const app = express();
 const PORT = 3001;
 
-app.use(cors()); // Enable CORS for all routes
+app.use(
+  cors({
+    origin: "https://christmas-dexapp.vercel.app/", // Replace with your frontend URL
+    methods: ["GET", "POST"], // Allow specific HTTP methods
+  })
+); // Enable CORS for all routes
 
 // Middleware to parse incoming JSON data
 app.use(express.json());
